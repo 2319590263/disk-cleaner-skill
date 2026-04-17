@@ -1,0 +1,25 @@
+﻿# 临时文件
+*.tmp
+*.temp
+*.log
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+
+# 备份文件
+*.bak
+*.old
+
+# 日志文件
+*.log
+logs/
+
+# 开发文件
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 本地配置
+local.config.json

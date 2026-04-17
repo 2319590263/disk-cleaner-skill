@@ -1,0 +1,111 @@
+{
+  "version": "1.0.0",
+  "name": "Disk Cleaner",
+  "description": "Windows磁盘清理和优化工具",
+  
+  "settings": {
+    "defaultDrive": "C",
+    "enableDeepScan": false,
+    "maxFileAgeDays": 30,
+    "minFileSizeMB": 100,
+    "safeMode": true,
+    "backupBeforeClean": true,
+    "keepBackupDays": 7,
+    "maxCleanSizeGB": 10
+  },
+  
+  "cleanTasks": {
+    "temp": {
+      "enabled": true,
+      "safe": true,
+      "description": "清理临时文件",
+      "paths": [
+        "%TEMP%",
+        "%WINDIR%\\Temp",
+        "C:\\Windows\\Temp",
+        "%LOCALAPPDATA%\\Temp"
+      ]
+    },
+    "cache": {
+      "enabled": true,
+      "safe": true,
+      "description": "清理浏览器缓存",
+      "browsers": [
+        "Microsoft Edge",
+        "Google Chrome",
+        "Mozilla Firefox"
+      ]
+    },
+    "downloads": {
+      "enabled": true,
+      "safe": false,
+      "description": "清理下载文件夹",
+      "maxAgeDays": 30,
+      "excludeExtensions": [".exe", ".msi", ".zip"]
+    },
+    "recycle": {
+      "enabled": true,
+      "safe": false,
+      "description": "清空回收站",
+      "confirm": true
+    },
+    "updates": {
+      "enabled": true,
+      "safe": true,
+      "description": "清理Windows更新缓存",
+      "stopService": true
+    },
+    "logs": {
+      "enabled": false,
+      "safe": true,
+      "description": "清理系统日志",
+      "maxAgeDays": 30
+    }
+  },
+  
+  "exclusions": {
+    "protectedDirectories": [
+      "C:\\Windows",
+      "C:\\Program Files",
+      "C:\\Program Files (x86)",
+      "C:\\System Volume Information",
+      "%USERPROFILE%\\Documents",
+      "%USERPROFILE%\\Pictures",
+      "%USERPROFILE%\\Videos",
+      "%USERPROFILE%\\Music"
+    ],
+    "protectedExtensions": [
+      ".exe", ".dll", ".sys", ".drv",
+      ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx",
+      ".pdf", ".txt", ".rtf",
+      ".jpg", ".jpeg", ".png", ".gif", ".bmp",
+      ".mp3", ".mp4", ".avi", ".mkv",
+      ".zip", ".rar", ".7z",
+      ".sql", ".mdb", ".accdb"
+    ],
+    "protectedFiles": [
+      "desktop.ini",
+      "thumbs.db",
+      "NTUSER.DAT",
+      "ntuser.dat.log"
+    ]
+  },
+  
+  "monitoring": {
+    "checkIntervalHours": 24,
+    "warningThreshold": 80,
+    "criticalThreshold": 90,
+    "enableNotifications": true,
+    "logPath": "%TEMP%\\DiskCleaner.log",
+    "reportPath": "%USERPROFILE%\\Desktop\\DiskCleaner_Reports"
+  },
+  
+  "advanced": {
+    "enableDuplicatesScan": true,
+    "enableLargeFilesScan": true,
+    "enableHealthCheck": true,
+    "parallelProcessing": false,
+    "maxThreads": 4,
+    "timeoutSeconds": 300
+  }
+}
