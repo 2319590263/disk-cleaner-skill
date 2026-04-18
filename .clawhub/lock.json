@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-browser-clawdbot": {
+      "version": "0.1.0",
+      "installedAt": 1776447182745
+    },
+    "taobao-shopping": {
+      "version": "2.0.2",
+      "installedAt": 1776454946789
+    }
+  }
+}
